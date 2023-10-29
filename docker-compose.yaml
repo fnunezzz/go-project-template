@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+    postgres:
+        build:
+            context: ./
+        image: postgres:12
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./data:/var/lib/postgresql/data
